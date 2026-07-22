@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import Link from "next/link"
-import { usePathname } from "next/navigation"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 import {
   UserIcon,
   MapPinIcon,
@@ -11,7 +11,7 @@ import {
   SettingsIcon,
   LayoutDashboardIcon,
   ShieldIcon,
-} from "lucide-react"
+} from "lucide-react";
 
 const baseSidebarLinks = [
   {
@@ -39,30 +39,30 @@ const baseSidebarLinks = [
     label: "تنظیمات",
     icon: SettingsIcon,
   },
-]
+];
 
 const adminLink = {
   href: "/dashboard",
   label: "پنل مدیریت",
   icon: ShieldIcon,
-}
+};
 
 export default function UserSidebar({ role }: { role?: string }) {
-  const pathname = usePathname()
+  const pathname = usePathname();
   const sidebarLinks =
-    role === "admin" ? [...baseSidebarLinks, adminLink] : baseSidebarLinks
+    role === "admin" ? [...baseSidebarLinks, adminLink] : baseSidebarLinks;
 
   return (
     <nav className="flex flex-col gap-1 w-full">
       {sidebarLinks.map((link) => {
-        const isActive = pathname === link.href
+        const isActive = pathname === link.href;
         return (
           <Button
             key={link.href}
             variant={isActive ? "secondary" : "ghost"}
             className={cn(
               "justify-start gap-3 h-12",
-              isActive && "bg-primary/10 text-primary font-semibold"
+              isActive && "bg-primary/10 text-primary font-semibold",
             )}
           >
             <Link href={link.href}>
@@ -70,8 +70,8 @@ export default function UserSidebar({ role }: { role?: string }) {
               {link.label}
             </Link>
           </Button>
-        )
+        );
       })}
     </nav>
-  )
+  );
 }

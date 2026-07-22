@@ -111,9 +111,11 @@ function Cart({ cart }: { cart: cart }) {
           <span>مجموع</span>
           <span>{cart.totalPrice} تومان</span>
         </div>
-        <Button className="w-full cursor-pointer" disabled>
-          ادامه خرید (به‌زودی)
-        </Button>
+        <Link href="/checkout" className="w-full">
+          <Button className="w-full cursor-pointer">
+            ادامه و تکمیل خرید
+          </Button>
+        </Link>
       </div>
     </div>
   );

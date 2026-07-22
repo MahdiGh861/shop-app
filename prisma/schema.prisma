@@ -24,6 +24,7 @@ model Product {
   price       Int      @default(0)
   createdAt   DateTime @default(now())
   cartItems   CartItems[]
+  orderItems  OrderItem[]
 }
 
 model User {
@@ -40,6 +41,7 @@ model User {
   account       Account[]
   session       Session[]
   cart          cart?
+  orders        Order[]
 }
 
 model Account {
@@ -93,6 +95,34 @@ model CartItems {
 
   @@unique([cartId, productId])
   @@map("cart_items")
+}
+
+model Order {
+  id            String      @id @default(cuid())
+  userId        String
+  shippingAddress Json
+  itemsPrice    Int
+  totalPrice    Int
+  paymentMethod String    @default("پرداخت درب منزل")
+  status        String    @default("در انتظار پرداخت")
+  createdAt     DateTime  @default(now())
+  user          User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  items         OrderItem[]
+}
+
+model OrderItem {
+  id        String @id @default(cuid())
+  orderId   String
+  productId String
+  name      String
+  slug      String
+  image     String
+  price     Int
+  quantity  Int
+  order     Order   @relation(fields: [orderId], references: [id], onDelete: Cascade)
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@map("order_items")
 }
 
 model VerificationToken {

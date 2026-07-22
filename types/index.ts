@@ -21,3 +21,34 @@ export type cart = {
     itemsPrice: number;
     totalPrice: number;
 };
+
+export type Address = {
+    fullName: string;
+    street: string;
+    city: string;
+    postalCode: string;
+    country: string;
+    phone: string;
+};
+
+export type OrderItem = {
+    id: string;
+    productId: string;
+    name: string;
+    slug: string;
+    image: string;
+    price: number;
+    quantity: number;
+};
+
+export type Order = {
+    id: string;
+    userId: string;
+    shippingAddress: Address;
+    itemsPrice: number;
+    totalPrice: number;
+    paymentMethod: string;
+    status: string;
+    createdAt: Date;
+    items: OrderItem[];
+};

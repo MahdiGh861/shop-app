@@ -47,6 +47,19 @@ export const updateAddressSchema = z.object({
     phone: z.string().min(1, 'شماره تلفن الزامی است.'),
 })
 
+export const shippingAddressSchema = z.object({
+    fullName: z.string().min(1, 'نام کامل الزامی است.'),
+    street: z.string().min(1, 'آدرس الزامی است.'),
+    city: z.string().min(1, 'شهر الزامی است.'),
+    postalCode: z.string().min(1, 'کد پستی الزامی است.'),
+    country: z.string().min(1, 'کشور الزامی است.'),
+    phone: z.string().min(1, 'شماره تلفن الزامی است.'),
+})
+
+export const paymentMethodSchema = z.object({
+    paymentMethod: z.string().min(1, 'روش پرداخت الزامی است.'),
+})
+
 export const changePasswordSchema = z.object({
     currentPassword: z.string().min(5, 'رمز عبور فعلی حداقل 5 کاراکتر باشد.'),
     newPassword: z.string().min(5, 'رمز عبور جدید حداقل 5 کاراکتر باشد.'),

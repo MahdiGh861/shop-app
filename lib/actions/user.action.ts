@@ -5,6 +5,8 @@ import { auth, signIn, signOut } from '@/auth'
 import { signInFromSchema, signUpFromSchema, updateProfileSchema, updateAddressSchema, changePasswordSchema } from '../validators'
 import { prisma } from "@/lib/prisma";
 import { hashSync, compareSync } from 'bcryptjs';
+import { getUserOrders } from './order.actions';
+
 
 export async function signInWithCrendentials(prevState: unknown, formData: FormData) {
     try {
@@ -180,12 +182,4 @@ export async function changeUserPassword(prevState: unknown, formData: FormData)
         }
         return { success: false, message: 'خطا در تغییر رمز عبور.' }
     }
-}
-
-export async function getUserOrders() {
-    const session = await auth()
-    if (!session?.user?.id) {
-        return []
-    }
-    return []
 }
