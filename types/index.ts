@@ -7,6 +7,7 @@ export type Product = z.infer<typeof insertProductSchema> & {
 };
 
 export type CartItem = {
+    brand?: string;
     productId: string;
     name: string;
     slug: string;

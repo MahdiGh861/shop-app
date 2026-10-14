@@ -84,23 +84,32 @@ export default async function UserDashboardPage() {
             <CardTitle>دسترسی سریع</CardTitle>
           </CardHeader>
           <CardContent className="space-y-2">
-            <Button asChild variant="outline" className="w-full justify-start gap-2">
-              <Link href="/user/profile">
-                <UserIcon className="h-4 w-4" />
-                ویرایش پروفایل
-              </Link>
+            <Button
+              render={<Link href="/user/profile" />}
+              variant="outline"
+              className="w-full justify-start gap-2"
+              nativeButton={false}
+            >
+              <UserIcon className="h-4 w-4" />
+              ویرایش پروفایل
             </Button>
-            <Button asChild variant="outline" className="w-full justify-start gap-2">
-              <Link href="/user/addresses">
-                <MapPinIcon className="h-4 w-4" />
-                مدیریت آدرس‌ها
-              </Link>
+            <Button
+              render={<Link href="/user/addresses" />}
+              variant="outline"
+              className="w-full justify-start gap-2"
+              nativeButton={false}
+            >
+              <MapPinIcon className="h-4 w-4" />
+              مدیریت آدرس‌ها
             </Button>
-            <Button asChild variant="outline" className="w-full justify-start gap-2">
-              <Link href="/user/orders">
-                <ShoppingBagIcon className="h-4 w-4" />
-                مشاهده سفارشات
-              </Link>
+            <Button
+              render={<Link href="/user/orders" />}
+              variant="outline"
+              className="w-full justify-start gap-2"
+              nativeButton={false}
+            >
+              <ShoppingBagIcon className="h-4 w-4" />
+              مشاهده سفارشات
             </Button>
           </CardContent>
         </Card>
