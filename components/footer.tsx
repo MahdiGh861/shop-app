@@ -1,6 +1,11 @@
 import {  Heart, Mail, MapPin, Phone } from "lucide-react";
 import Link from "next/link";
-
+const links = [
+  { href: "/", label: "صفحه اصلی" },
+  { href: "/product", label: "محصولات" },
+  { href: "/cart", label: "سبد خرید" },
+  { href: "/sign-in", label: "ورود / ثبت نام" },
+]
 function Footer() {
     const currentYear = new Date().getFullYear();
   return (
@@ -27,12 +32,7 @@ function Footer() {
           <div className="space-y-4">
             <h3 className="font-bold text-sm tracking-wide uppercase text-foreground/90">دسترسی سریع</h3>
             <ul className="space-y-2.5">
-              {[
-                { href: "/", label: "صفحه اصلی" },
-                { href: "/product", label: "محصولات" },
-                { href: "/cart", label: "سبد خرید" },
-                { href: "/sign-in", label: "ورود / ثبت نام" },
-              ].map((item) => (
+              {links.map((item) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}

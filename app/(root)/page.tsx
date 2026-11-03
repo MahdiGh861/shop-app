@@ -68,7 +68,7 @@ export default async function Home() {
                 <span>جدیدترین نسخه فروشگاه</span>
               </Badge>
 
-              <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black tracking-tighter leading-[1.1]">
+              <h1 className="text-1xl sm:text-2xl md:text-3xl lg:text-4xl font-black tracking-tighter leading-[1.1]">
                 تجربه خریدی
                 <br />
                 <span className="gradient-text">مدرن و لذت‌بخش</span>
